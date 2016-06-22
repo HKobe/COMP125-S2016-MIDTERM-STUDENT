@@ -59,37 +59,77 @@ if (paragraphElements[index])
                                 //contact form below
 
 })();
-//
 
 
-        function onFormSubmit(event)
-        {
-             contactForm.addEventListener("submit", onFormSubmit);
+    function Contact() {
+        // create a reference for your form
+        var contactForm = document.getElementById("contactForm");
+        firstName = document.getElementById("firstName");
+        lastName = document.getElementById("lastName");
+        email = document.getElementById("email");
+        contactNumber = document.getElementById("contactNumber");
+        yourMessage = document.getElementById("yourMessage");
+
+        contactForm.addEventListener("submit", onFormSubmit);
+    }
+
+            function onFormSubmit(event){
             console.info("entered onFormSubmit event");
 
             // stops the form from clearing and trying to submit
             event.preventDefault();
+            // displays the forms values to the console
+            displayFormValues();
             // reset the form
             contactForm.reset();
-                  }
-                //Index.html - Home()
- {
+    }
 
-        console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+    /**
+     * displays form values on the page and console
+     * 
+     * @method displayFormValues
+     * @returns {void}
+     */
+    function displayFormValues() {
+        var column = document.getElementById("column");
+        var formValues = document.createElement("div");
+        formValues.setAttribute("id","formValues");
+
+        var formValuesString = "";
+        formValuesString += "<p><hr><br>";
+        formValuesString += "First Name: " + firstName.value + "<br>";
+        formValuesString += "Last Name: " + lastName.value + "<br>";
+        formValuesString += "Email: " + email.value + "<br>";
+        formValuesString += "Contact Number: " + contactNumber.value + "<br>";
+        formValuesString += "Your Message: " + yourMessage.value + "<br>";
+        formValuesString += "<hr><br></p>";
+
+        formValues.innerHTML = formValuesString;
+
+        if(document.getElementById("formValues")) {
+            var formValuesDiv = document.getElementById("formValues");
+            formValuesDiv.innerHTML = formValuesString;
+        }
+        else {
+            column.appendChild(formValues);
+        }
+        
+
+
+        console.log("++++++++++++++++++++++++++++++++++++++++++");
         console.log("First Name: " + firstName.value);
         console.log("Last Name: " + lastName.value);
         console.log("Email: " + email.value);
         console.log("Contact Number: " + contactNumber.value);
         console.log("Your Message: " + yourMessage.value);
-        
-        window.navigator.geolocation.getCurrentPosition(function (location) 
+           window.navigator.geolocation.getCurrentPosition(function (location) 
             {
                 console.log("Latitude: " + location.coords.latitude);
                 console.log("Longitude: " + location.coords.longitude);
                 console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        console.log("++++++++++++++++++++++++++++++++++++++++++");
             }
-
-            );
+    
 
   
       
