@@ -62,24 +62,14 @@ if (paragraphElements[index])
 
 })();
 
-function PageSwitcher() {
-        switch (document.title) {
-            case "Home":
-                Home();
-                break;
-        }
+    function onFormSubmit(event){
+            console.info("entered onFormSubmit event");
+
+            // stops the form from clearing and trying to submit
+            event.preventDefault();
+            // displays the forms values to the console
+            displayFormValues();
+            // reset the form
+            contactForm.reset();
     }
-    /**
-     * This function provides JavaScript code for the About page
-     * 
-     * @function About
-     * @returns {void}
-     */
-    function About() {
-Console.log("===================================================");
-console.log("First Name: " + firstName.value);
-console.log("last Name: " + lastName.value);
-console.log("email: " + email.value);
-console.log("Your Message: " + yourmessage.value);
-Console.log("===================================================");
-    }
+
