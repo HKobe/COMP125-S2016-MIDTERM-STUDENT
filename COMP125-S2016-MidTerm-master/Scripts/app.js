@@ -59,15 +59,12 @@ if (paragraphElements[index])
                                 //contact form below
 
 })();
+//
 
-function PageSwitcher() {
-        switch (document.title) {
-            case "COMP125 - MidTerm Exam":
-                Home();
-                break;
-        }
 
-    function onFormSubmit(event){
+        function onFormSubmit(event)
+        {
+             contactForm.addEventListener("submit", onFormSubmit);
             console.info("entered onFormSubmit event");
 
             // stops the form from clearing and trying to submit
@@ -75,20 +72,23 @@ function PageSwitcher() {
             // reset the form
             contactForm.reset();
                   }
-                function Home() {
+                //Index.html - Home()
+ {
+
         console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         console.log("First Name: " + firstName.value);
         console.log("Last Name: " + lastName.value);
         console.log("Email: " + email.value);
         console.log("Contact Number: " + contactNumber.value);
         console.log("Your Message: " + yourMessage.value);
-        console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                }
-
-            window.navigator.geolocation.getCurrentPosition(function (location) {
+        
+        window.navigator.geolocation.getCurrentPosition(function (location) 
+            {
                 console.log("Latitude: " + location.coords.latitude);
                 console.log("Longitude: " + location.coords.longitude);
-           }
+                console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            }
+
             );
 
   
